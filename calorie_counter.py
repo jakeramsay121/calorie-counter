@@ -13,3 +13,11 @@ def calculate_statistics(food_dict):
 
     return total_calories, average_calories, highest_calories, lowest_calories, num_items
 
+def get_max_min_foods(food_dict):
+    if not food_dict:
+        return None, None
+    max_cal = max(food_dict.values())
+    min_cal = min(food_dict.values())
+    max_foods = [food for food, cal in food_dict.items() if cal == max_cal]
+    min_foods = [food for food, cal in food_dict.items() if cal == min_cal]
+    return max_foods, min_foods
